@@ -1,3 +1,29 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
+class Service(models.Model):
+    name = models.TextField(max_length=100)
+    
+    def __str__(self):
+        return self.name
+    #enddef
+#endclass
+
+class Appointment(models.Model):
+    client = models.ForeignKey(User, on_delete=models.CASCADE, related_name='appointments')
+    service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    date_appointment = models.DateField()
+    time_appointment = models.TimeField()
+    
+    class Meta:
+        # Impedindo dois agendamentos no mesmo dia e horário
+        unique_together = ('date_appointment', 'time_appointment')
+        ordering = ['date_appointment', 'time_appointment']
+    #endclass
+    
+    def __str__(self):
+        return f'{self.service}: {self.date_appointment} - {self.time_appointment}'
+    #enddef
+#endclass
