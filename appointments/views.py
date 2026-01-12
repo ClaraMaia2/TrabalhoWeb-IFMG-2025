@@ -1,52 +1,50 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
-from datetime import datetime
 from .models import Appointment, Service
+from .forms import FormAppointment
 from .utils import AVAILABLE_TIMES
 
 @login_required
 def create_appointment(request):
     services = Service.objects.all()
-    available_times = AVAILABLE_TIMES
     
     if request.method == 'POST':
-        date_appointment = request.POST['date_appointment']
-        time_appointment = request.POST['time_appointment']
-        service_id = request.POST['service']
+        form = FormAppointment(request.POST, user=request.user)
         
-        appointment = Appointment(
-            service_id=service_id,
-            date_appointment=date_appointment,
-            time_appointment=time_appointment
-        )
-        
-        if not request.user.is_staff:
-            appointment.client = request.user
-        #endifnot
-        else:
-            appointment.client = None
-            appointment.client_name = request.POST.get('client_name')
-        #endelse
-        
-        appointment.save()
-        
-        return redirect('appointments:my_appointments')
+        if form.is_valid():
+            appointment = form.save(commit=False)
+            
+            if not request.user.is_staff:
+                appointment.client = request.user
+                appointment.client_name = ''
+            #endifnot
+            else:
+                appointment.client = None
+            #endelse
+            
+            appointment.save()
+            
+            return redirect('appointments:my_appointments')
+        #endif
     #endif
+    else:
+        form = FormAppointment(user=request.user)
+    #enelse
     
     # ===== GET (filtrar horários disponíveis) =====
     
     selected_date = request.GET.get('date_appointment')
+    available_times = AVAILABLE_TIMES
     
     if selected_date:
-        occupied = Appointment.objects.filter(date_appointment=selected_date).values_list('time', flat=True)
+        occupied = Appointment.objects.filter(date_appointment=selected_date).values_list('time_appointment', flat=True)
         
         occupied = [t.strftime('%H:%M') for t in occupied]
-        
         available_times = [h for h in AVAILABLE_TIMES if h not in occupied]
     #endif
     
-    return render(request, 'appointments/make_appointment.html', {'services': services, 'available_times': available_times})
+    return render(request, 'appointments/make_appointment.html', {'form': form, 'available_times': available_times, 'services': services})
 #enddef
 
 @login_required
