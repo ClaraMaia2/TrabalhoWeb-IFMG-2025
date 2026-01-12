@@ -13,7 +13,7 @@ class FormAppointment(forms.ModelForm):
         super().__init__(*args, **kwargs)
     #enddef
     
-    def clean_form(self):
+    def clean(self):
         cleaned_data = super().clean()
         client_name = cleaned_data.get('client_name')
         

@@ -13,7 +13,7 @@ class Appointment(models.Model):
     client = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='appointments')
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     
-    client_name = models.TextField(max_length=100, blank=True)
+    client_name = models.CharField(max_length=100, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     date_appointment = models.DateField()
     time_appointment = models.TimeField()

@@ -34,7 +34,7 @@
 .btn-login {
     width: 100%;
     padding: 12px;
-    background: #577d76;
+    background: #668F88;
     color: white;
     border: none;
     border-radius: 10px;
@@ -42,4 +42,8 @@
     font-family: "Cagliostro", serif;
     font-size: 17px;
     cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: #557b75;
 }
