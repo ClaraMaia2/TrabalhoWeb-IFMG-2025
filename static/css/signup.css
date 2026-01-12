@@ -1,0 +1,116 @@
+.signup-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.signup-card {
+    background-color: #f9f9f9;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.signup-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #231F20;
+}
+
+.signup-form fieldset {
+    border: none;
+    margin-bottom: 1.5rem;
+}
+
+.signup-form legend {
+    font-family: "Cardo", serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0.8rem;
+    color: #668F88;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.form-group input, .form-group select {
+    padding: 0.6rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #668F88;
+}
+
+.error {
+    color: #c0392b;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+.form-errors {
+    background-color: #ffe6e6;
+    padding: 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    color: #c0392b;
+    font-size: 0.9rem;
+}
+
+.btn-signup {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #668F88;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-family: "Cagliostro", serif;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-signup:hover {
+    background-color: #557b75;
+}
+
+.signup-footer {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-family: "Cagliostro", serif;
+}
+
+.signup-footer a {
+    color: #668F88;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "Cagliostro", serif;
+}
+
+.signup-footer a:hover {
+    text-decoration: underline;
+}
+
+.fieldset-container {
+    display: flex;
+    gap: 5rem;
+    justify-content: center;
+}

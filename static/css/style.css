@@ -1,9 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cagliostro&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-color: #FFFFFF;
     margin: 0px;
+}
+
+main {
+    flex: 1;
 }
 
 .font-title {
@@ -16,7 +29,7 @@ body {
 }
 
 .font-text {
-    font-family: "Cardo", serif;
+    font-family: "Cagliostro", serif;
     font-weight: 400;
     color: black;
     font-style: normal;
@@ -55,7 +68,9 @@ header {
 }
 
 footer {
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color: #668F88;
+    padding: 12px;
 }

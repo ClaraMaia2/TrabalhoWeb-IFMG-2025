@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/login.css' %}">{% endblock %}
+
+{% block content %}
+    <div class="login-container">
+        <div class="login-card">
+            <h1 class="font-title login-title">Login</h1>
+            <form method="post" class="login-form">
+                {% csrf_token %}
+
+                {{form.non_field_errors}}
+
+                <div class="form-group">
+                    <label for="id_username" class="font-text">Usuário</label>
+
+                    {{form.username}}
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label for="id_password" class="font-text">Senha</label>
+
+                    {{form.password}}
+                </div>
+
+                <br>
+
+                <button type="submit" class="btn-login">Entrar</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

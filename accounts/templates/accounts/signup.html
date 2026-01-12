@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Cadastro{% endblock %}
+
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/signup.css' %}">{% endblock %}
+
+{% block content %}
+    <div class="signup-container">
+        <div class="signup-card">
+            <h1 class="font-title signup-title">Criar conta</h1>
+
+            {% comment %} ===== FORMULÁRIO DE CADASTRO DE USUÁRIO ===== {% endcomment %}
+            <form method="post" class="signup-form">
+                {% csrf_token %}
+
+                {% comment %} ===== ERROS GERAIS ===== {% endcomment %}
+                {% if user_form.non_field_errors %}
+                    <div class="form-errors">
+                        {{ user_form.non_field_errors }}
+                    </div>
+                {% endif %}
+
+                {% comment %} ===== DADOS DE LOGIN ===== {% endcomment %}
+                <div class="fieldset-container">
+                    <fieldset>
+                        <legend>Dados de acesso</login>
+    
+                        {% for field in user_form %}
+                            <div class="form-group">
+                                <label for="{{field.id_for_label}}" class="font-text">{{ field.label }}</label>
+                                {{ field }}
+    
+                                {% if field.errors %}
+                                    <small class="error">{{ field.errors|striptags }}</small>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </fieldset>
+    
+                    {% comment %} ===== DADOS PESSOAIS ===== {% endcomment %}
+                    <fieldset>
+                        <legend>Dados pessoais</login>
+    
+                        {% for field in profile_form %}
+                            <div class="form-group">
+                                <label for="{{field.id_for_label}}" class="font-text">{{ field.label }}</label>
+                                {{ field }}
+    
+                                {% if field.errors %}
+                                    <small class="error">{{ field.errors|striptags }}</small>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </fieldset>
+                </div>
+                
+                <button type="submit" class="btn-signup">Cadastrar</button>
+            </form>
+
+            <p class="signup-footer">
+                Já possui uma conta?
+                <a href="{% url 'accounts:login' %}">Entrar</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}
