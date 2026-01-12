@@ -1,40 +1,81 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Início{% endblock %}
 
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/home.css' %}">{% endblock %}
+
 {% block content %}
-    <section class="about">
-        <h1 class="font-title">Sobre mim</h1>
-        <p class="font-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie cursus erat in tincidunt. Aliquam ex leo, ultricies mollis arcu non, vehicula mollis sapien. Phasellus sollicitudin hendrerit scelerisque. Donec nec feugiat turpis. Duis facilisis nisl eu dui sodales pretium. Pellentesque suscipit sit amet arcu a auctor. Morbi aliquam viverra sapien, sed ullamcorper magna scelerisque vitae. Sed lobortis enim a ante vulputate, quis accumsan ex tristique. Donec tempor est a orci commodo, quis eleifend ante laoreet. Vestibulum eget dolor orci. Phasellus tempus a nibh et imperdiet. Maecenas dictum quam dolor, id sodales diam facilisis quis. Nam sit amet turpis in ex aliquam molestie. Cras accumsan, sapien nec pretium euismod, diam libero auctor risus, id mattis risus mauris sed libero. Ut porta, velit non luctus porta, nunc erat consectetur arcu, at accumsan mauris erat at sem. Duis aliquet mauris sed felis euismod, in egestas justo dictum.<br>
-            Sed efficitur malesuada elit, nec varius erat ultricies vitae. Vestibulum malesuada at urna rhoncus fringilla. Nunc a dui accumsan, iaculis nibh nec, ornare libero. Praesent in scelerisque leo, vel fermentum elit. Sed ut diam luctus, elementum nisi tempor, commodo leo. Integer viverra enim et nunc pretium mattis. Vivamus eu tellus at nisi dictum tincidunt. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer consectetur molestie tortor, sed ultrices metus laoreet nec.
-        </p>
+    <section class="hero" id="hero">       
+        <div class="hero-text">
+            <h1 class="font-title">
+                Terapias naturais para equilíbrio, bem-estar e qualidade de vida
+            </h1>
+
+            <p class="font-text">
+                Atendimento humanizado com foco em saúde emocional, corporal e energética,
+                promovendo mais qualidade de vida e autocuidado.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#about" class="button">Sobre mim</a>
+                <a href="#therapies" class="button">Conheça as terapias</a>
+            </div>
+        </div>
+
+        <div class="hero-image"></div>
     </section>
-    <section class="therapies">
-        <h1 class="font-title">Terapias</h1>
+
+    <section class="about" id="about">
+        <h1 class="font-title">Sobre mim</h1>
+        <div class="about-container">
+            <img src="../static/img/milena.jfif">
+            <p class="font-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie cursus erat in tincidunt. Aliquam ex leo, ultricies mollis arcu non, vehicula mollis sapien. Phasellus sollicitudin hendrerit scelerisque. Donec nec feugiat turpis. Duis facilisis nisl eu dui sodales pretium. Pellentesque suscipit sit amet arcu a auctor. Morbi aliquam viverra sapien, sed ullamcorper magna scelerisque vitae. Sed lobortis enim a ante vulputate, quis accumsan ex tristique. Donec tempor est a orci commodo, quis eleifend ante laoreet. Vestibulum eget dolor orci. Phasellus tempus a nibh et imperdiet. Maecenas dictum quam dolor, id sodales diam facilisis quis. Nam sit amet turpis in ex aliquam molestie. Cras accumsan, sapien nec pretium euismod, diam libero auctor risus, id mattis risus mauris sed libero. Ut porta, velit non luctus porta, nunc erat consectetur arcu, at accumsan mauris erat at sem. Duis aliquet mauris sed felis euismod, in egestas justo dictum.<br>
+                Sed efficitur malesuada elit, nec varius erat ultricies vitae. Vestibulum malesuada at urna rhoncus fringilla. Nunc a dui accumsan, iaculis nibh nec, ornare libero. Praesent in scelerisque leo, vel fermentum elit. Sed ut diam luctus, elementum nisi tempor, commodo leo. Integer viverra enim et nunc pretium mattis. Vivamus eu tellus at nisi dictum tincidunt. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer consectetur molestie tortor, sed ultrices metus laoreet nec.
+            </p>
+        </div>
+    </section>
+
+    <section class="therapies" id="therapies">
+        <h1 class="font-title" style="text-align:center">Terapias</h1>
         <div class="therapies_container">
             <div class="therapy">
-                <img><img>
-                <h1>Finger Yoga</h1>
-                <p></p>
-            </div> 
-                       
-            <div class="therapy">
-                <img><img>
-                <h1>Reflexologia Podal</h1>
-                <p></p>
+                <img src="../static/img/finger_yoga.jpg">
+                <h1 class="font-title">Finger Yoga</h1>
+                <p class="font-text" style="padding:0 1.5rem">Finger yoga é uma técnica bem-estar baseada em gestos feitos com os dedos, 
+                    conhecidos como <strong>mudras</strong>. Esses movimentos estimulam terminações nervosas e pontos energéticos das mãos, 
+                    ajudando a promover <strong>relaxamento, equilíbrio emocional, melhora da concentração e alívio do estresse</strong>. 
+                    Pode ser praticada em qualquer lugar, sem necessidade de equipamentos, sendo uma ótima opção para quem busca momentos 
+                    rápidos de autocuidado e conexão entre corpo e mente.</p>
             </div> 
 
             <div class="therapy">
-                <img><img>
-                <h1>Shiatsu</h1>
-                <p></p>
+                <img src="../static/img/reflexologia_podal.jpg">
+                <h1 class="font-title">Reflexologia Podal</h1>
+                <p class="font-text" style="padding:0 1.5rem">Reflexologia podal é uma técnica terapêutica que consiste na aplicação
+                    de pressão em pontos específicos dos <strong>pés</strong>, chamados de zonas reflexas, que correspondem a diferentes
+                    órgãos e partes do corpo. O estímulo desses pontos ajuda a melhorar a <strong>circulação, aliviar tensões, reduzir o estresse
+                    e promover o equilíbrio do organismo</strong>. Além de proporcionar relaxamento, a reflexologia é utilizada como prática 
+                    complementar para o bem-estar físico e emocional.</p>
+            </div> 
+
+            <div class="therapy">
+                <img src="../static/img/shiatsu.jpg">
+                <h1 class="font-title">Shiatsu</h1>
+                <p class="font-text" style="padding:0 1.5rem">Shiatsu é uma técnica terapêutica de origem japonesa que utiliza a <strong>pressão dos dedos, 
+                    palmas das mãos e, em alguns casos, cotovelos</strong>, sobre pontos específicos do corpo. Essa prática estimula a circulação de energia, 
+                    alivia tensões musculares, reduz o estresse e contribui para o <strong>equilíbrio físico e emocional</strong>. O shiatsu também auxilia na melhora da postura, 
+                    da circulação sanguínea e na promoção do relaxamento e bem-estar geral.</p>
             </div>
 
-            <divclass="therapy">
-                <img><img>
-                <h1>Auriculoterapia</h1>
-                <p></p>
+            <div class="therapy">
+                <img src="../static/img/auriculoterapia.png">
+                <h1 class="font-title">Auriculoterapia</h1>
+                <p class="font-text" style="padding:0 1.5rem">Auriculoterapia é uma técnica terapêutica baseada na estimulação de <strong>pontos específicos da orelha</strong>, 
+                    que representam diferentes órgãos e funções do corpo. Esses pontos podem ser ativados por meio de pressão, sementes, esferas ou agulhas, 
+                    auxiliando no <strong>alívio de dores, redução do estresse, controle da ansiedade e melhora do equilíbrio físico e emocional</strong>. 
+                    É uma prática complementar amplamente utilizada para promover o bem-estar e apoiar diversos tratamentos de saúde.</p>
             </div>
         </div>
     </section>

@@ -20,9 +20,9 @@
         </div>
         <nav class="navbar">
             <div class="landing-page-nav">
-                <a class="font-nav" href="{% url "core:home" %}">Início</a>
-                <a class="font-nav" href="{% url "core:home" %}">Sobre mim</a>
-                <a class="font-nav" href="{% url "core:home" %}">Terapias</a>
+                <a class="font-nav" href="/#hero">Início</a>
+                <a class="font-nav" href="/#about">Sobre mim</a>
+                <a class="font-nav" href="/#therapies">Terapias</a>
             </div>
             <div class="utils-nav">
                 {% if user.is_authenticated %}
@@ -52,8 +52,16 @@
     </main>
 
     <footer>
-        <p class="font-text" style="color: #231F20; text-align: center; padding: 2rem; font-size:1.25rem">© 2026 - Milena Massoterapeuta</p>
+        <p class="font-text" style="color: #231F20; padding: 1rem; font-size:1.25rem">© 2026 - Milena Massoterapeuta</p>
     </footer>
+
+    <script>
+        window.onload = function () {
+            window.scrollTo(0, 0);
+            history.replaceState(null, null, ' ');
+        };
+    </script>
+
 
     <script src={% static "js/scripts.js" %}></script>
 
