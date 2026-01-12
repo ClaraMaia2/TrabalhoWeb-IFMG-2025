@@ -1,0 +1,45 @@
+.appointments-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.appointment-day {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+    align-items: flex-start;
+}
+
+.appointment-date {
+    font-family: 'Cardo', serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #231F20;
+    padding-top: 12px;
+}
+
+.appointments-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.appointment-card {
+    background-color: #F5F5F5;
+    border-left: 6px solid #668F88;
+    padding: 16px;
+    border-radius: 6px;
+}
+
+.appointment-card p {
+    margin: 6px 0;
+}
+
+.empty-message {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.1rem;
+    color: #555;
+}

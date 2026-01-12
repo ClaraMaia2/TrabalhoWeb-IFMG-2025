@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/my_appointments.css' %}">{% endblock %}
+
+{% block title %}Meus Agendamentos{% endblock %}
+
+{% block content %}
+    <div class="appointments-container">
+        <h1 class="font-title" style="text-align: center">Meus agendamentos</h1>
+
+        {% regroup appointments by date_appointment as appointments_by_day %}
+
+        {% if appointments_by_day %}
+            {% for day in appointments_by_day %}
+                <div class="appointment-day">
+                    <div class="appointment-date"> 
+                        {{ day.grouper|date:"d/m/Y"}}
+                    </div>
+    
+                    <div class="appointments-list">
+                        {% for appointment in day.list %}
+                            <div class="appointment-card">
+                                <p class="font-text"><strong>Serviço:</strong> {{ appointment.service.name }}</p>
+        
+                                <p class="font-text"><strong>Horário:</strong> {{ appointment.time_appointment|time:"H:i" }}</p>
+        
+                                <p class="font-text"><strong>Agendado em:</strong> {{ appointment.created_at|date:"d/m/Y H:i" }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="font-text empty-message">Você ainda não possui nenhum agendamento</p>    
+        {% endif %}
+    </div>
+{% endblock %}
