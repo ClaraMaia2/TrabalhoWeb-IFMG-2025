@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{% static "css/style.css" %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -16,24 +15,27 @@
             <img src="{% static "img/logo.png" %}" alt="Logo">
         </div>
         <nav class="navbar">
-            <a class="font-text" href="{% url "core:home" %}">Início</a>
-            <a class="font-text" href="{% url "core:home" %}">Sobre mim</a>
-            <a class="font-text" href="{% url "core:home" %}">Terapias</a>
+            <div class="landing-page-nav">
+                <a class="font-nav" href="{% url "core:home" %}">Início</a>
+                <a class="font-nav" href="{% url "core:home" %}">Sobre mim</a>
+                <a class="font-nav" href="{% url "core:home" %}">Terapias</a>
+            </div>
+            <div class="utils-nav">
+                {% if user.is_authenticated %}
+                    <a class="font-nav" href="{% url "appointments:create" %}">Agendar</a>
+                    <a class="font-nav" href="{% url "appointments:my_appointments" %}">Meus agendamentos</a>
 
-            {% if user.is_authenticated %}
-                <a class="font-text" href="{% url "appointments:create" %}">Agendar</a>
-                <a class="font-text" href="{% url "appointments:mt_appointments" %}">Meus agendamentos</a>
+                    {% if user.is_staff %}
+                        {% comment %} TODO: MUDAR ISSO PARA PÁGINA DE TERAPEUTA {% endcomment %}
+                        <a class="font-nav" href="{% url "admin:index" %}">Admin</a>
+                    {% endif %}
 
-                {% if user.is_staff %}
-                    {% comment %} TODO: MUDAR ISSO PARA PÁGINA DE TERAPEUTA {% endcomment %}
-                    <a class="font-text" href="{% url "admin:index" %}">Admin</a>
+                    <a class="button" href="{% url "accounts:logout" %}">Sair</a>
+                {% else %}
+                    <a class="button" href="{% url "accounts:login" %}">Login</a>
+                    <a class="button" href="{% url "accounts:signup" %}">Cadastrar</a>
                 {% endif %}
-
-                <a class="font-text" href="{% url "accounts:logout" %}">Sair</a>
-            {% else %}
-                <a class="font-text" href="{% url "accounts:login" %}">Login</a>
-                <a class="font-text" href="{% url "accounts:signup" %}">Cadastrar</a>
-            {% endif %}
+            </div>
         </nav>
     </header>
 
@@ -42,7 +44,7 @@
     </main>
 
     <footer>
-        <p class="font-text" style="color: #231F20; text-align: center;">© 2026 - Milena Massoterapeuta</p>
+        <p class="font-text" style="color: #231F20; text-align: center; padding: 2rem; font-size:1.25rem">© 2026 - Milena Massoterapeuta</p>
     </footer>
 </body>
 </html>

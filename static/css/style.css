@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cagliostro&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-color: #FFFFFF;
     margin: 0px;
 }
@@ -16,46 +25,90 @@ body {
 }
 
 .font-text {
-    font-family: "Cardo", serif;
+    font-family: "Cagliostro", serif;
     font-weight: 400;
-    color: black;
+    color: #231F20;
     font-style: normal;
     padding: 8px;
     text-align: justify;
 }
 
+.font-nav {
+    font-family: "Cagliostro", serif;
+    font-weight: 400;
+    color: #231F20;
+    font-style: normal;
+    padding: 8px;
+    text-align: justify;
+}
+
+
 header {
     background-color: #668F88;
     display: flex;
     align-items: center;
-    padding: 20px 40px;
-    border-bottom: 1px solid #577d76;
+    gap: 2rem;
+    padding: 0.5rem 4rem;
     background-color: #668F88;
+
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
 }
 
-
 .logo img {
-    height: 50px;
+    height: 10rem;
 }
 
 .navbar {
     display: flex;
     flex: 1;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;  
+}
+
+.landing-page-nav {
+    display: flex;
+    gap: 5rem;
+}
+
+.utils-nav {
+    display: flex;
+    gap: 3rem;
 }
 
 .navbar a {
     text-decoration: none;
     color: #ffe9c5;
     font-weight: 500;
+    font-size: 1.25rem;
+
+    transition: color 0.2s;
 }
 
 .navbar a:hover {
     color: #231F20;
 }
 
+.navbar a.button {
+    border: 3px solid #ffe9c5;
+    border-radius: 10px;
+    padding: 0.5rem 2rem;
+
+    font-family: "Cagliostro", serif;
+    font-weight: 400;
+    color: #ffe9c5;
+
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.navbar a.button:hover {
+    background-color: #ffe9c5;
+    color: #668F88;
+}
+
 footer {
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color: #668F88;
+    padding: 12px;
 }
