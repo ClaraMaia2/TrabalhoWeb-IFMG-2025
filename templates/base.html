@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block  title %}Massoterapia{% endblock  %}</title>
+
+    <link rel="stylesheet" href={% static "css/style.css" %}>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href={% url "core:home" %}>Início</a>
+
+            {% if user.is_authenticated %}
+                <a href="{% url "appointments:create" %}">Agendar</a>
+                <a href="{% url "appointments:mt_appointments" %}">Meus agendamentos</a>
+
+                {% if user.is_staff %}
+                    {% comment %} TODO: MUDAR ISSO PARA PÁGINA DE TERAPEUTA {% endcomment %}
+                    <a href="{% url "admin:index" %}">Admin</a>
+                {% endif %}
+
+                <a href="{% url "accounts:logout" %}">Sair</a>
+            {% else %}
+                <a href="{% url "accounts:login" %}">Login</a>
+                <a href="{% url "accounts:signup" %}">Cadastro</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2026 - Milena Massoterapeuta</p>
+    </footer>
+</body>
+</html>
