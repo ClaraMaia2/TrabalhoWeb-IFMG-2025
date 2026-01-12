@@ -53,7 +53,6 @@ header {
     align-items: center;
     gap: 2rem;
     padding: 0.5rem 4rem;
-    background-color: #668F88;
 
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
 }
@@ -107,7 +106,63 @@ header {
 .navbar a.button:hover {
     background-color: #ffe9c5;
     color: #668F88;
+    cursor: pointer;
 }
+
+.navbar button {
+    text-decoration: none;
+    color: #ffe9c5;
+    border: 3px solid #ffe9c5;
+    background-color: #668F88;
+    border-radius: 10px;
+    padding: 0.5rem 2rem;
+
+    font-family: "Cagliostro", serif;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #ffe9c5;
+
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.navbar button:hover {
+    background-color: #ffe9c5;
+    color: #668F88;
+    cursor: pointer;
+}
+
+.messages-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.django-message {
+    background-color: #668F88;
+    color: #231F20;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+    font-family: "Cardo", serif;
+}
+
+.django-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.django-message.success {
+    background-color: #9BC1BC;
+}
+
+.django-message.error {
+    background-color: #E07A5F;
+}
+
 
 footer {
     display: flex;
