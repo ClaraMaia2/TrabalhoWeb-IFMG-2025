@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.db import transaction
 from .forms import ProfileForm, SignupForm
 
@@ -17,6 +18,8 @@ def sign_up(request):
                 profile.user = user
                 profile.save()
                 
+                messages.success(request, 'Conta criada com sucesso!')
+                
                 login(request, user)
                 
                 return redirect('core:home')
@@ -32,6 +35,10 @@ def sign_up(request):
 #enddef
 
 @login_required
-def profile_view(request):
-    return render(request, 'accounts/profile.html')
+def logout_view(request):
+    logout(request)
+    
+    messages.success(request, 'Você saiu da sua conta com sucesso!')
+    
+    return redirect('core:home')
 #enddef

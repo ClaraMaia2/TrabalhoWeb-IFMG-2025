@@ -34,7 +34,11 @@
                         <a class="font-nav" href="{% url "admin:index" %}">Admin</a>
                     {% endif %}
 
-                    <a class="button" href="{% url "accounts:logout" %}">Sair</a>
+                    <form method="post" action="{% url 'accounts:logout' %}" style="display: inline;">
+                        {% csrf_token %}
+                        
+                        <button class="button" type="submit">Sair</button>
+                    </form>
                 {% else %}
                     <a class="button" href="{% url "accounts:login" %}">Login</a>
                     <a class="button" href="{% url "accounts:signup" %}">Cadastrar</a>
@@ -58,5 +62,19 @@
         };
     </script>
 
+
+    <script src={% static "js/scripts.js" %}></script>
+
+    {% block extra_js %}{% endblock %}
 </body>
+
+{% if messages %}
+    <div class="messages-container">
+        {% for message in messages %}
+            <div class="django-message {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
 </html>
