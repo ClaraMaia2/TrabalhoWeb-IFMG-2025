@@ -18,6 +18,11 @@ def sign_up(request):
                 profile.user = user
                 profile.save()
                 
+                if profile.is_terapeuta:
+                    user.is_staff = True
+                    user.save(update_fields=['is_staff'])
+                #endif
+                
                 messages.success(request, 'Conta criada com sucesso!')
                 
                 login(request, user)

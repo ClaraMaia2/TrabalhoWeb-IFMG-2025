@@ -25,10 +25,12 @@ class SignupForm(UserCreationForm):
 #endclass
 
 class ProfileForm(forms.ModelForm):
+    is_terapeuta = forms.BooleanField(required=False, label="Sou terapeuta")
+    
     class Meta:
         model = Profile
         
-        fields = ('cpf', 'sexo', 'data_nascimento', 'celular')
+        fields = ('cpf', 'sexo', 'data_nascimento', 'celular', 'is_terapeuta')
         
         widgets = {'data_nascimento': forms.DateInput(attrs={'type': 'date'})}
     #endclass
