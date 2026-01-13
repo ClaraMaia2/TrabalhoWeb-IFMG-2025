@@ -10,4 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
             message.classList.remove("show");
         }, 4000);
     });
+
+    //window.scrollTo(0, 0);
+    history.replaceState(null, null, ' ');
 });
+
+    

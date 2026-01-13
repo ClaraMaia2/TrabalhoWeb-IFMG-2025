@@ -10,18 +10,11 @@
         <div class="signup-card">
             <h1 class="font-title signup-title">Criar conta</h1>
 
-            {% comment %} ===== FORMULÁRIO DE CADASTRO DE USUÁRIO ===== {% endcomment %}
             <form method="post" class="signup-form">
                 {% csrf_token %}
 
-                {% comment %} ===== ERROS GERAIS ===== {% endcomment %}
-                {% if user_form.non_field_errors %}
-                    <div class="form-errors">
-                        {{ user_form.non_field_errors }}
-                    </div>
-                {% endif %}
+                {{ user_form.non_field_errors }}
 
-                {% comment %} ===== DADOS DE LOGIN ===== {% endcomment %}
                 <div class="fieldset-container">
                     <fieldset>
                         <legend>Dados de acesso</legend>
@@ -38,7 +31,6 @@
                         {% endfor %}
                     </fieldset>
     
-                    {% comment %} ===== DADOS PESSOAIS ===== {% endcomment %}
                     <fieldset>
                         <legend>Dados pessoais</legend>
     

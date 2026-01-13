@@ -40,5 +40,5 @@ def logout_view(request):
     
     messages.success(request, 'Você saiu da sua conta com sucesso!')
     
-    return redirect('core:home')
+    return redirect('core:home')    
 #enddef
