@@ -292,13 +292,13 @@ section {
 }
 
 .therapy:hover {
-    /* background-color: #668F88; */
+    background-color: #668F88;
 
     transform: translateY(-6px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.18);
 }
 
-/* .therapy > h1::after {
+.therapy > h1::after {
     transition: background-color 0.25s ease;
 }
 
@@ -317,7 +317,7 @@ section {
 .therapy:hover h1,
 .therapy:hover p {
     color: #f3f6f5;
-} */
+}
 
 .therapy > h1::after {
     content: "";
