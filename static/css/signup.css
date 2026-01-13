@@ -128,3 +128,16 @@
     color: #557b75;
 }
 
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    accent-color: #668F88;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
