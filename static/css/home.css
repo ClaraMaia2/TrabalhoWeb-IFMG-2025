@@ -294,7 +294,7 @@ section {
 .therapy:hover {
     background-color: #668F88;
 
-    transform: translateY(-6px);
+    transform: translateY(-12px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.18);
 }
 

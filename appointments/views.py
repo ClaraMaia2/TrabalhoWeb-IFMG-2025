@@ -32,14 +32,12 @@ def create_appointment(request):
         form = FormAppointment(user=request.user)
     #enelse
     
-    # ===== GET (filtrar horários disponíveis) =====
-    
+    # ===== GET (filtrar horários disponíveis) ===== 
     selected_date = request.GET.get('date_appointment')
     available_times = AVAILABLE_TIMES
     
     if selected_date:
         occupied = Appointment.objects.filter(date_appointment=selected_date).values_list('time_appointment', flat=True)
-        
         occupied = [t.strftime('%H:%M') for t in occupied]
         available_times = [h for h in AVAILABLE_TIMES if h not in occupied]
     #endif

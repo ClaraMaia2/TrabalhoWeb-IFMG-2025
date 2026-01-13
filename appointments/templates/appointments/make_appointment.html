@@ -10,7 +10,6 @@
         <div class="appointment-card">
             <h1 class="font-title" style="text-align: center">Agendar atendimento</h1>
 
-            {% comment %} ===== DATA DE AGENDAMENTO ===== {% endcomment %}
             <form method="get">
                 <div class="form-group">
                     <label for="date_appointment" class="font-text">Data</label>
@@ -25,12 +24,10 @@
                     <small class="help-text font-text">Ao escolher a data, os horários disponíveis serão atualizados</small>
                 </div>
             </form>
-
-            {% comment %} ===== FORMULÁRIO DE AGENDAMENTO DE SERVIÇO ===== {% endcomment %}
-            <form method="post">
+   
+            <form method="post" class="appointment-form">
                 {% csrf_token %}
-
-                {% comment %} ===== CAMPO DE NOME DO CLIENTE (somente para admin) ===== {% endcomment %}
+                
                 {% if user.is_staff %}
                     <div class="form-group">
                         <label for='client_name' class="font-text">Nome do cliente</label>
@@ -43,8 +40,7 @@
                         >
                     </div>
                 {% endif %}
-
-                {% comment %} ===== SERVIÇOS ===== {% endcomment %}
+               
                 <div class="form-group">
                     <label for="service" class="font-text">Serviço</label>
                     <select name="service" id="service" required>
@@ -58,8 +54,7 @@
 
                 {% comment %} Mantém a data escolhida anteriormente {% endcomment %}
                 <input type="hidden" name="date_appointment" value="{{ request.GET.date_appointment }}">
-
-                {% comment %} ===== HORÁRIO DO AGENDAMENTO ===== {% endcomment %}
+               
                 <div class="form-group">
                     <label for="time_appointment" class="font-text">Horário</label>
                     <select name="time_appointment" id="time_appointment" required>

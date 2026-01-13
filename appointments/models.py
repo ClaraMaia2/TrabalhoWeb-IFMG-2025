@@ -18,11 +18,9 @@ class Appointment(models.Model):
     date_appointment = models.DateField()
     time_appointment = models.TimeField()
     
-    # Configura o comportamento do model, ou seja, define regras e opções do model
     class Meta:
-        # Impedindo dois agendamentos no mesmo dia e horário
         unique_together = ('date_appointment', 'time_appointment')
-        ordering = ['date_appointment', 'time_appointment'] # Define a ordem padrão dos resultados quando buscar agendamentos
+        ordering = ['date_appointment', 'time_appointment']
     #endclass
     
     def __str__(self):
