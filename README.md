@@ -52,8 +52,6 @@ O sistema possui **perfis diferenciados**, com controle de acesso baseado no tip
 
 As permissões e opções de navegação variam conforme o perfil.
 
----
-
 ### 3️⃣ Cadastros (CRUD)
 
 O sistema conta com **mais de três cadastros**, atendendo aos requisitos do projeto:
@@ -65,16 +63,12 @@ O sistema conta com **mais de três cadastros**, atendendo aos requisitos do pro
 
 Todas as operações básicas de CRUD são aplicadas conforme a necessidade do sistema.
 
----
-
 ### 4️⃣ Menu Dinâmico
 O menu principal do sistema se adapta automaticamente de acordo com o usuário logado:
 
 - Opções diferentes para usuários autenticados e não autenticados
 - Funcionalidades exclusivas para terapeutas
 - Links de login, cadastro, logout e agendamentos exibidos dinamicamente
-
----
 
 ### 5️⃣ Sistema de Agendamentos
 - Criação de agendamentos por usuários
@@ -85,8 +79,6 @@ O menu principal do sistema se adapta automaticamente de acordo com o usuário l
   - **Todos os agendamentos** (terapeuta)
 
 Os agendamentos são organizados por data e horário.
-
----
 
 ### 6️⃣ Interface e Usabilidade
 - Layout consistente em todas as páginas
@@ -120,7 +112,7 @@ project/
 1. Clone o repositório:
 
 ```
-git clone <url-do-repositorio>
+gh repo clone ClaraMaia2/TrabalhoWeb-IFMG-2025
 ```
 
 2. Crie e ative o ambiente virtual:
