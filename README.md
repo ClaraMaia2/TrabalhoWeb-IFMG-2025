@@ -95,14 +95,12 @@ project/
 │
 ├── accounts/ # Autenticação, cadastro e recuperação de senha
 ├── appointments/ # Agendamentos e serviços
-├── core/ # Páginas principais
-├── templates/ # Templates HTML
+├── core/ # Páginas principais e layout base
 ├── static/
 │ ├── css/
 │ ├── js/
 │ └── img/
-├── manage.py
-└── db.sqlite3
+└── manage.py
 ```
 
 ---
