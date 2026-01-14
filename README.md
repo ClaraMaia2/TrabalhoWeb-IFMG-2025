@@ -31,7 +31,7 @@ Desenvolver um sistema web funcional que permita o gerenciamento de usuários, s
 - **HTML5**
 - **CSS3**
 - **JavaScript**
-- **SQLite** (banco de dados padrão do Django)
+- **PostgreSQL**
 - **Google Fonts**
 
 ---
@@ -52,7 +52,7 @@ O sistema possui **perfis diferenciados**, com controle de acesso baseado no tip
 
 As permissões e opções de navegação variam conforme o perfil.
 
-### 3️⃣ Cadastros (CRUD)
+### 3️⃣ Cadastros
 
 O sistema conta com **mais de três cadastros**, atendendo aos requisitos do projeto:
 
@@ -60,8 +60,6 @@ O sistema conta com **mais de três cadastros**, atendendo aos requisitos do pro
 - **Perfil do usuário** (dados pessoais)
 - **Serviços**
 - **Agendamentos**
-
-Todas as operações básicas de CRUD são aplicadas conforme a necessidade do sistema.
 
 ### 4️⃣ Menu Dinâmico
 O menu principal do sistema se adapta automaticamente de acordo com o usuário logado:
