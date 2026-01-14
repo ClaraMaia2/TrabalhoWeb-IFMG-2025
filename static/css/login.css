@@ -90,6 +90,15 @@
     animation: fadeIn 0.3s ease;
 }
 
+.forgot-password {
+    text-decoration: none;
+    color: #668F88
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+    color: #557b75;
+}
 
 .errorlist li {
     margin: 0;
