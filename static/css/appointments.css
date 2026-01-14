@@ -1,0 +1,85 @@
+.appointment-container {
+    min-height: calc(100vh - 160px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #f4f6f8;
+}
+
+.appointment-card {
+    width: 100%;
+    max-width: 500px;
+    background-color: white;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.appointment-card > h1::after {
+    content: "";
+    display: block;
+    width: 60%;
+    max-width: 25rem;
+    height: 4px;
+    background-color: #668F88;
+    margin: 1rem auto 1rem;
+    border-radius: 2px;
+}
+
+.appointment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-group {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.form-group input, .form-group select {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #668F88;
+}
+
+.help-text {
+    margin-top: 4px;
+    font-size: 12px;
+    color: grey;
+}
+
+.btn-appointment {
+    width: 60%;
+    padding: 12px;
+    background: #668F88;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-family: "Cagliostro", serif;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.25s ease;
+}
+
+.btn-appointment:hover {
+    background-color: #557b75;
+    transform: scale(1.05);
+}

@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Massoterapia{% endblock  %}</title>
+
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{% static "img/logo.png" %}" alt="Logo">
+        </div>
+        <nav class="navbar">
+            <div class="landing-page-nav">
+                <a class="font-nav" href="/#hero">Início</a>
+                <a class="font-nav" href="/#about">Sobre mim</a>
+                <a class="font-nav" href="/#therapies">Terapias</a>
+            </div>
+            <div class="utils-nav">
+                {% if user.is_authenticated %}
+                    <a class="font-nav" href="{% url "appointments:create" %}">Agendar</a>
+                    
+                    {% if user.is_staff %}
+                        <a class="font-nav" href="{% url "appointments:all_appointments" %}">Todos agendamentos</a>
+                        <a class="font-nav" href="{% url "appointments:make_services" %}">Cadastrar serviços</a>
+                    {% else %}
+                        <a class="font-nav" href="{% url "appointments:my_appointments" %}">Meus agendamentos</a>
+                    {% endif %}
+
+                    <form method="post" action="{% url 'accounts:logout' %}" style="display: inline;">
+                        {% csrf_token %}
+                        
+                        <button class="button" type="submit">Sair</button>
+                    </form>
+                {% else %}
+                    <a class="button" href="{% url "accounts:login" %}">Login</a>
+                    <a class="button" href="{% url "accounts:signup" %}">Cadastrar</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer >
+        <div>
+            <p class="font-title">Milena Madeira | Massoterapeuta </p>
+       
+        </div>
+        <div>
+            <p class="font-text">Atendimento em Belo Horizonte e Sabará | Whatsapp: (31)9xxxx-xxxx</p>
+            <p class="font-text">© 2026 — Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src={% static 'js/scripts.js' %}></script>
+
+    {% block extra_js %}{% endblock %}
+
+    {% if messages %}
+    <div class="messages-container">
+        {% for message in messages %}
+            <div class="django-message {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+</body> 
+</html>

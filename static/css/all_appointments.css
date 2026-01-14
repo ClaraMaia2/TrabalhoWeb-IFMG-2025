@@ -1,0 +1,83 @@
+.appointments-container {
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.font-title::after {
+    content: "";
+    display: block;
+    width: 80%;
+    max-width: 50rem;
+    height: 4px;
+    background-color: #668F88;
+    margin: 2rem auto 1rem;
+    border-radius: 2px;
+}
+
+.appointment-day {
+    margin-bottom: 40px;
+}
+
+.appointment-date {
+    font-family: 'Cagliostro', serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #231F20;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+
+.appointments-list-horizontal {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+
+@media (max-width: 1100px) {
+    .appointments-list-horizontal {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 750px) {
+    .appointments-list-horizontal {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 450px) {
+    .appointments-list-horizontal {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.appointment-card {
+    background-color: #F5F5F5;
+    border-left: 6px solid #668F88;
+    padding: 14px;
+    border-radius: 8px;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.appointment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+}
+
+
+.appointment-card p {
+    margin: 6px 0;
+}
+
+.empty-message {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.1rem;
+    color: #555;
+}

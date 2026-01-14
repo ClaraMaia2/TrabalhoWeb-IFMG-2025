@@ -10,15 +10,15 @@ class Service(models.Model):
 #endclass
 
 class Appointment(models.Model):
-    client = models.ForeignKey(User, on_delete=models.CASCADE, related_name='appointments')
+    client = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='appointments')
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     
+    client_name = models.CharField(max_length=100, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     date_appointment = models.DateField()
     time_appointment = models.TimeField()
     
     class Meta:
-        # Impedindo dois agendamentos no mesmo dia e horário
         unique_together = ('date_appointment', 'time_appointment')
         ordering = ['date_appointment', 'time_appointment']
     #endclass

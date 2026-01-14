@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cagliostro&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    margin: 0px;
+}
+
+main {
+    flex: 1;
+}
+
+.font-title {
+    font-family: "Cardo", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #231F20;
+    font-size: 50px;
+    padding: 8px;
+}
+
+.font-text {
+    font-family: "Cagliostro", serif;
+    font-weight: 400;
+    color: #231F20;
+    font-style: normal;
+    padding: 8px;
+    text-align: justify;
+}
+
+.font-nav {
+    font-family: "Cagliostro", serif;
+    font-weight: 400;
+    color: #231F20;
+    font-style: normal;
+    padding: 8px;
+    text-align: justify;
+}
+
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #668F88;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 4rem;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+.logo img {
+    height: 8rem;
+}
+
+.navbar {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;  
+}
+
+.landing-page-nav {
+    display: flex;
+    gap: 5rem;
+}
+
+.utils-nav {
+    display: flex;
+    gap: 3rem;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #ffe9c5;
+    font-weight: 500;
+    font-size: 1.25rem;
+
+    transition: color 0.2s, transform 0.2s;
+}
+
+.navbar a:hover {
+    color: #231F20;
+    transform: scale(1.05);
+}
+
+.navbar a.button {
+    border: 2px solid #ffe9c5;
+    border-radius: 10px;
+    padding: 0.5rem 2rem;
+
+    font-family: "Cagliostro", serif;
+    font-weight: 400;
+    color: #ffe9c5;
+
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.navbar a.button:hover {
+    background-color: #ffe9c5;
+    color: #668F88;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.navbar button {
+    text-decoration: none;
+    color: #ffe9c5;
+    border: 3px solid #ffe9c5;
+    background-color: #668F88;
+    border-radius: 10px;
+    padding: 0.5rem 2rem;
+
+    font-family: "Cagliostro", serif;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #ffe9c5;
+
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.navbar button:hover {
+    background-color: #ffe9c5;
+    color: #668F88;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.messages-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.django-message {
+    background-color: #668F88;
+    color: #231F20;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+    font-family: "Cardo", serif;
+}
+
+.django-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.django-message.success {
+    background-color: #9BC1BC;
+}
+
+.django-message.error {
+    background-color: #E07A5F;
+}
+
+
+footer {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: #668F88;
+    padding: 1.5rem 0;
+    box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.25);
+}
+
+footer > div:last-child {
+    border-left: 2px solid #231F20;
+    padding-left: 5rem;
+}
+
+
+footer .font-title { 
+    font-size: 1.5rem;
+}
+
+footer .font-text {
+    font-size: 1rem; 
+}
+
+@media (max-width: 700px) {
+    footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 700px) {
+    footer > div:last-child {
+        border-left: none;
+        padding-left: 0;
+    }
+}
+
+.django-message {
+    position: fixed;
+    top: 9rem;
+    right: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    font-family: "Cagliostro", serif;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+    z-index: 9999;
+}
+
+.django-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.django-message.success {
+    background-color: #668F88;
+    color: #ffffff;
+}
+
+
+.django-message.error {
+    background-color: #e53935;
+    color: #ffffff;
+}
+
+
+

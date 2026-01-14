@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Novo Agendamento{% endblock %}
+
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/appointments.css' %}">{% endblock %}
+
+{% block content %}
+    <div class="appointment-container">
+        <div class="appointment-card">
+            <h1 class="font-title" style="text-align: center">Agendar atendimento</h1>
+
+            <form method="get">
+                <div class="form-group">
+                    <label for="date_appointment" class="font-text">Data</label>
+                    <input
+                        type="date"
+                        name="date_appointment"
+                        id="date_appointment"
+                        value="{{ request.GET.date_appointment }}"
+                        required
+                        onchange="this.form.submit()"
+                    >
+                    <small class="help-text font-text">Ao escolher a data, os horários disponíveis serão atualizados</small>
+                </div>
+            </form>
+   
+            <form method="post" class="appointment-form">
+                {% csrf_token %}
+                
+                {% if user.is_staff %}
+                    <div class="form-group">
+                        <label for='client_name' class="font-text">Nome do cliente</label>
+                        <input
+                            type="text"
+                            name="client_name"
+                            id="client_name"
+                            placeholder="Digite o nome do cliente"
+                            required
+                        >
+                    </div>
+                    
+                {% endif %}
+               
+                <div class="form-group">
+                    <label for="service" class="font-text">Serviço</label>
+                    <select name="service" id="service" required>
+                        <option value="">Selecione um serviço</option>
+
+                        {% for service in services %}
+                            <option value="{{ service.id }}">{{ service.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                {% comment %} Mantém a data escolhida anteriormente {% endcomment %}
+                <input type="hidden" name="date_appointment" value="{{ request.GET.date_appointment }}">
+               
+                <div class="form-group">
+                    <label for="time_appointment" class="font-text">Horário</label>
+                    <select name="time_appointment" id="time_appointment" required>
+                        <option value="">Selecione um horário</option>
+
+                        {% for time in available_times %}
+                            <option value="{{ time }}">{{ time }}</option>
+                        {% empty %}
+                            <option disabled>Nenhum horário disponível</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-appointment">Confirmar agendamento</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
