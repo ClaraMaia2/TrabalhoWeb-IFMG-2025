@@ -16,6 +16,17 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
+.appointment-card > h1::after {
+    content: "";
+    display: block;
+    width: 60%;
+    max-width: 25rem;
+    height: 4px;
+    background-color: #668F88;
+    margin: 1rem auto 1rem;
+    border-radius: 2px;
+}
+
 .appointment-form {
     display: flex;
     flex-direction: column;
@@ -69,7 +80,6 @@
 }
 
 .btn-appointment:hover {
-    background-color: #557b75;
     background-color: #557b75;
     transform: scale(1.05);
 }

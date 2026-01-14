@@ -63,3 +63,15 @@ def all_appointments(request):
     
     return render(request, 'appointments/all_appointments.html', {'appointments': appointments})
 #enddef
+
+
+@staff_member_required
+def make_services(request):
+    if request.method == 'POST':
+        name = request.POST.get('name_service')
+
+        if name:
+            Service.objects.create(name=name.strip())
+            return redirect('appointments:make_services')
+
+    return render(request, 'appointments/make_services.html')

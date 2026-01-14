@@ -1,0 +1,74 @@
+.service-container {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.service-card {
+    background-color: #FFFFFF;
+    padding: 32px 28px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.service-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.form-group label {
+    font-weight: 600;
+}
+
+.form-group input {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #668F88;
+}
+
+.btn-service {
+    width: 60%;
+    padding: 12px;
+    background: #668F88;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-family: "Cagliostro", serif;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.25s ease;
+}
+
+.btn-service:hover {
+    background-color: #557b75;
+    transform: scale(1.05);
+}
+
+.font-title::after {
+    content: "";
+    display: block;
+    width: 80%;
+    max-width: 25rem;
+    height: 4px;
+    background-color: #668F88;
+    margin: 1rem auto 1rem;
+    border-radius: 2px;
+}

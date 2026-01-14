@@ -126,13 +126,14 @@ header {
     font-size: 1.25rem;
     color: #ffe9c5;
 
-    transition: background-color 0.2s, color 0.2s;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
 }
 
 .navbar button:hover {
     background-color: #ffe9c5;
     color: #668F88;
     cursor: pointer;
+    transform: scale(1.05);
 }
 
 .messages-container {

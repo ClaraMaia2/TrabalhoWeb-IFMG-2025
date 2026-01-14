@@ -29,6 +29,7 @@
                     
                     {% if user.is_staff %}
                         <a class="font-nav" href="{% url "appointments:all_appointments" %}">Todos agendamentos</a>
+                        <a class="font-nav" href="{% url "appointments:make_services" %}">Cadastrar serviços</a>
                     {% else %}
                         <a class="font-nav" href="{% url "appointments:my_appointments" %}">Meus agendamentos</a>
                     {% endif %}
