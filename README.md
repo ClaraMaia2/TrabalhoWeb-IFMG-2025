@@ -1,7 +1,7 @@
 # 🧘‍♀️ Sistema Web de Agendamentos – Massoterapia
 
 ## 📚 Trabalho Final – Programação Web  
-Projeto desenvolvido como trabalho final da disciplina de **Programação Web**, com o objetivo de construir um sistema web completo utilizando conceitos de **CRUD**, **autenticação**, **controle de acesso por perfil** e **boas práticas com Django**.
+Projeto desenvolvido como trabalho final da disciplina de **Programação Web**, com o objetivo de construir um sistema web completo utilizando conceitos de **autenticação**, **controle de acesso por perfil** e **boas práticas com Django**.
 
 ---
 
