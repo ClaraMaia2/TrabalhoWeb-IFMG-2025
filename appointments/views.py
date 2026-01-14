@@ -24,13 +24,17 @@ def create_appointment(request):
             #endelse
             
             appointment.save()
-            
-            return redirect('appointments:my_appointments')
+      
+            if request.user.is_staff:
+                return redirect('appointments:all_appointments')  
+            else:
+                return redirect('appointments:my_appointments') 
+            #endif
         #endif
     #endif
     else:
         form = FormAppointment(user=request.user)
-    #enelse
+    #endelse
     
     # ===== GET (filtrar horários disponíveis) ===== 
     selected_date = request.GET.get('date_appointment')
@@ -47,14 +51,15 @@ def create_appointment(request):
 
 @login_required
 def my_appointments(request):
-    appointments = Appointment.objects.filter(client=request.user)
+    appointments = Appointment.objects.filter(client=request.user).order_by('date_appointment', 'time_appointment')
     
     return render(request, 'appointments/my_appointments.html', {'appointments': appointments})
 #enddef
 
 @staff_member_required
 def all_appointments(request):
-    appointments = Appointment.objects.all()
+    appointments = Appointment.objects.all().order_by('date_appointment', 'time_appointment')
+
     
-    return render(request, 'appointments/all_appoinments.html', {'appointments': appointments})
+    return render(request, 'appointments/all_appointments.html', {'appointments': appointments})
 #enddef

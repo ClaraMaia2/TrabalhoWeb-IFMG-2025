@@ -26,11 +26,11 @@
             <div class="utils-nav">
                 {% if user.is_authenticated %}
                     <a class="font-nav" href="{% url "appointments:create" %}">Agendar</a>
-                    <a class="font-nav" href="{% url "appointments:my_appointments" %}">Meus agendamentos</a>
-
+                    
                     {% if user.is_staff %}
-                        {% comment %} TODO: MUDAR ISSO PARA PÁGINA DE TERAPEUTA {% endcomment %}
-                        <a class="font-nav" href="{% url "admin:index" %}">Admin</a>
+                        <a class="font-nav" href="{% url "appointments:all_appointments" %}">Todos agendamentos</a>
+                    {% else %}
+                        <a class="font-nav" href="{% url "appointments:my_appointments" %}">Meus agendamentos</a>
                     {% endif %}
 
                     <form method="post" action="{% url 'accounts:logout' %}" style="display: inline;">
